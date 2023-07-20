@@ -18,7 +18,6 @@ class GoogleController extends Controller
 
     public function googleCallback()
     {
-        try {
 
             $user = Socialite::driver('google')->user();
 
@@ -43,9 +42,5 @@ class GoogleController extends Controller
 
                 return redirect('/dashboard');
             }
-
-        } catch (Exception $e) {
-            dd($e->getMessage());
-        }
     }
 }

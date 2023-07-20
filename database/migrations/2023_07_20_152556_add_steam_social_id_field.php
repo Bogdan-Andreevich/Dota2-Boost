@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGoogleSocialIdField extends Migration
+class AddSteamSocialIdField extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddGoogleSocialIdField extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
-            $table->string('google_id')->nullable()->unique();
+            $table->string('steam_id')->nullable()->unique();
         });
     }
 
@@ -26,7 +26,8 @@ class AddGoogleSocialIdField extends Migration
     public function down()
     {
         Schema::table('users', function ($table) {
-            $table->dropColumn('google_id');
+            $table->dropColumn('steam_id');
         });
     }
 }
+

@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\SteamController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -34,8 +35,13 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
+
     Route::get('auth/google', [GoogleController::class, 'googleRedirect']);
     Route::get('login/google/callback', [GoogleController::class, 'googleCallback']);
+
+    Route::get('auth/steam', [SteamController::class, 'steamRedirect']);
+    Route::get('login/steam/callback', [SteamController::class, 'steamCallback']);
+
 });
 
 Route::middleware('auth')->group(function () {

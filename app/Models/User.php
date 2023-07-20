@@ -21,7 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'profile_url',
         'google_id',
+        'steam_id',
         'auth_type',
     ];
 
