@@ -1,63 +1,83 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <title>Login</title>
+    <link rel="stylesheet" href="{{asset('styles/main.css')}}" />
+  </head>
+  <body>
+    <div class="login active">
+      <div class="login-modal">
+        <div class="login-block">
+          <h2 class="login-title">{{__('Вхід до особистого аккаунту')}}</h2>
+          <p class="login-desc">{{__('Виконайте вхід за допомогою наших партнерів')}}</p>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+          <div class="login-alt-auth">
+              <a href="{{ url('auth/google') }}" class="login-alt-auth-button">
+                  <img
+                      class="login-alt-auth-button-icon"
+                      alt="google"
+                      src="{{ asset('images/icons/google.svg') }}"
+                  />
+              </a>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+              <a href="{{ url('auth/steam') }}" class="login-alt-auth-button">
+              <img
+                class="login-alt-auth-button-icon"
+                alt="steam"
+                src="{{asset('images/icons/steam.svg')}}"
+              />
+              </a>
+          </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+          <p class="login-alternative">{{__('або')}}</p>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+          <form class="login-form" method="POST" action="{{ route('login') }}">
+            <label class="login-form-label">
+              <p class="login-form-label-title">{{__('Електронна Пошта')}}</p>
+                <x-input-label for="email"/>
+                <x-text-input id="email" class="login-form-label-input" type="email" name="email" :value="old('email')" placeholder="E-mail" required autofocus autocomplete="username" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </label>
-        </div>
+            <label class="login-form-label">
+              <div class="login-form-label-block">
+                <p class="login-form-label-title">{{__('Пароль')}}</p>
+                  @if (Route::has('password.request'))
+                      <a class="login-form-label-link" href="{{ route('password.request') }}">
+                          {{__('Забув Пароль?')}}
+                      </a>
+                  @endif
+              </div>
+                <x-input-label for="password"/>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+                <x-text-input id="password" class="login-form-label-input"
+                              placeholder="Password"
+                              type="password"
+                              name="password"
+                              required autocomplete="current-password" />
 
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
-        {{-- Login with Google --}}
-        <div class="flex items-center justify-end mt-4">
-            <a class="btn" href="{{ url('auth/google') }}"
-               style="background: #313131; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                Login with Google
-            </a>
-        </div>
 
-        {{-- Login with Steam --}}
-        <div class="flex items-center justify-end mt-4">
-            <a class="btn" href="{{ url('auth/steam') }}"
-               style="background: #313131; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                Login with Steam
-            </a>
+            </label>
+
+            <label class="login-form-label-checkbox">
+              <input class="login-form-label-checkbox-input" type="checkbox" name="remember" />
+              <p class="login-form-label-checkbox-text">{{__('Запам’ятати Мене')}}</p>
+            </label>
+
+            <button class="login-form-submit">{{__('Вхід')}}</button>
+
+            <div class="login-go-register">
+              <p class="login-go-register-text">{{__('Не маєш профілю ?')}}</p>
+              <a class="login-go-register-link" href="{{ route('register') }}">{{__('Перейти до реєстрації')}}</a>
+            </div>
+          </form>
         </div>
-    </form>
-</x-guest-layout>
+      </div>
+    </div>
+  </body>
+</html>
