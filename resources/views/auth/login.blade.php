@@ -36,6 +36,7 @@
           <p class="login-alternative">{{__('або')}}</p>
 
           <form class="login-form" method="POST" action="{{ route('login') }}">
+              @csrf
             <label class="login-form-label">
               <p class="login-form-label-title">{{__('Електронна Пошта')}}</p>
                 <x-input-label for="email"/>
