@@ -34,19 +34,19 @@
 
             <ul class="header-navigation__menu">
               <li class="header-navigation__menu-item">
-                <a href="{{route('')}}" class="header-navigation__menu-link"> DotaBoost </a>
+                <a href="{{route('/')}}" class="header-navigation__menu-link"> DotaBoost </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Послуги </a>
+                <a href="{{route('/services')}}" class="header-navigation__menu-link"> Послуги </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Про нас </a>
+                <a href="{{route('/about')}}" class="header-navigation__menu-link"> Про нас </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Робота </a>
+                <a href="{{route('/work')}}" class="header-navigation__menu-link"> Робота </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="./blog.html" class="header-navigation__menu-link">
+                <a href="{{route('/blog')}}" class="header-navigation__menu-link">
                   Блог
                 </a>
               </li>
