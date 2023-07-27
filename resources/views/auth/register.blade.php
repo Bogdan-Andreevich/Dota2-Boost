@@ -40,7 +40,7 @@
 
               <label class="register-form-label">
                   <p class="register-form-label-title">{{__("Ім'я")}}</p>
-                  <x-text-input id="email" class="register-form-label-input" placeholder="Name" type="name" name="name" :value="old('name')" required autocomplete="name" />
+                  <x-text-input id="email" class="register-form-label-input" placeholder="Name" type="name" name="name" :value="old('name')" required autocomplete="nacd" />
                   <x-input-error :messages="$errors->get('name')" class="mt-2" />
               </label>
             <label class="register-form-label">
