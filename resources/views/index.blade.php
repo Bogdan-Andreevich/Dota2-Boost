@@ -34,36 +34,37 @@
 
             <ul class="header-navigation__menu">
               <li class="header-navigation__menu-item">
-                <a href="{{route('/')}}" class="header-navigation__menu-link"> DotaBoost </a>
+                <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> DotaBoost </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{route('/services')}}" class="header-navigation__menu-link"> Послуги </a>
+                <a href="{{url('/service')}}" class="header-navigation__menu-link"> Послуги </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{route('/about')}}" class="header-navigation__menu-link"> Про нас </a>
+                <a href="{{url('/about')}}" class="header-navigation__menu-link"> Про нас </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{route('/work')}}" class="header-navigation__menu-link"> Робота </a>
+                <a href="{{url('/work')}}" class="header-navigation__menu-link"> Робота </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{route('/blog')}}" class="header-navigation__menu-link">
+                <a href="{{url('/blog')}}" class="header-navigation__menu-link">
                   Блог
                 </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> FAQ </a>
+                <a href="{{url('/FAQ')}}" class="header-navigation__menu-link"> FAQ </a>
               </li>
             </ul>
 
             <div class="header-navigation__profile">
               <div class="header-navigation__profile-info">
+                  @auth
                 <div class="header-navigation__profile-info-block">
                   <img
                     class="header-navigation__profile-info-image"
                     alt="profile"
-                    src="{{ Auth::user()->avatar ?? asset('images/profile-image.png') }}"
+                    src="{{ e(Auth::user()->avatar) ?? asset('images/profile-image.png') }}"
                   />
-                  <p class="header-navigation__profile-info-name">{{ Auth::user()->name }}</p>
+                  <p class="header-navigation__profile-info-name">{{ e(Auth::user()->name) }}</p>
                   <button class="header-navigation__profile-info-notification">
                     <img
                       class="header-navigation__profile-info-notification-icon"
@@ -71,39 +72,57 @@
                       src="{{asset('images/icons/notifications.svg')}}"
                     />
                   </button>
-                </div>
+                    @else
+                        <div class="header-navigation__profile">
+                            <a class="header-navigation__profile-button" href="{{ route('register') }}">
+                                <img
+                                    class="header-navigation__profile-button-icon"
+                                    src="{{asset('images/icons/account.svg')}}"
+                                    alt="account"
+                                />
+                                {{(__('Особистий кабінет'))}}
+                            </a>
+                        </div>
 
-                <div class="header-navigation__profile-menu-block">
-                  <div class="header-navigation__profile-menu">
-                    <a
-                      href="./cabinet.html"
-                      class="header-navigation__profile-menu-button"
-                    >
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/account.svg"
-                        alt="icon-menu"
-                      />
-                      Профіль
-                    </a>
-                    <button class="header-navigation__profile-menu-button">
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/settings-profile.svg"
-                        alt="icon-menu"
-                      />
-                      Налаштування
-                    </button>
-                    <button class="header-navigation__profile-menu-button">
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/out-profile.svg"
-                        alt="icon-menu"
-                      />
-                      Вихід
-                    </button>
-                  </div>
+
+                    @endauth
                 </div>
+                      @auth
+                          <div class="header-navigation__profile-menu-block">
+                              <div class="header-navigation__profile-menu">
+                                  <a
+                                      href="{{url('/cabinet')}}"
+                                      class="header-navigation__profile-menu-button"
+                                  >
+                                      <img
+                                          class="header-navigation__profile-menu-button-icon"
+                                          src="{{asset('images/icons/account.svg')}}"
+                                          alt="icon-menu"
+                                      />
+                                      Профіль
+                                  </a>
+                                  <a class="header-navigation__profile-menu-button" href="{{url('/settings')}}">
+                                      <img
+                                          class="header-navigation__profile-menu-button-icon"
+                                          src="{{asset('images/icons/settings-profile.svg')}}"
+                                          alt="icon-menu"
+                                      />
+                                      Налаштування
+                                  </a>
+                                  <a class="header-navigation__profile-menu-button" href="{{ route('logout') }}"
+                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                      <img class="header-navigation__profile-menu-button-icon" src="{{ asset('images/icons/out-profile.svg') }}"
+                                           alt="icon-menu"/>
+                                      {{ __('Вихід') }}
+                                  </a>
+
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      @csrf
+                                  </form>
+                              </div>
+                          </div>
+
+                      @endauth
               </div>
             </div>
           </nav>
@@ -120,25 +139,25 @@
             <button class="hero-slider__button active">
               <img
                 class="hero-slider__button-image"
-                src="./images/slider/slide-1.png"
+                src="{{asset('images/slider/slide-1.png')}}"
               />
             </button>
             <button class="hero-slider__button">
               <img
                 class="hero-slider__button-image"
-                src="./images/slider/slide-2.png"
+                src="{{asset('images/slider/slide-2.png')}}"
               />
             </button>
             <button class="hero-slider__button">
               <img
                 class="hero-slider__button-image"
-                src="./images/slider/slide-3.png"
+                src="{{asset('images/slider/slide-3.png')}}"
               />
             </button>
             <button class="hero-slider__button">
               <img
                 class="hero-slider__button-image"
-                src="./images/slider/slide-4.png"
+                src="{{asset('images/slider/slide-4.png')}}"
               />
             </button>
           </div>

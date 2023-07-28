@@ -19,8 +19,41 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('ddashboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/work', function () {
+    return view('work-us');
+});
+
+Route::get('/service', function () {
+    return view('service-boost');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/FAQ', function () {
+    return view('faq');
+});
+
+Route::get('/preparation', function () {
+    return view('preparation');
+});
+
+Route::get('/cabinet', function () {
+    return view('cabinet-client');
+});
+
+Route::get('/settings', function () {
+    return view('cabinet-client-settings-account');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

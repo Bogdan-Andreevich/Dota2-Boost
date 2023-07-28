@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Exception;
@@ -27,20 +28,21 @@ class GoogleController extends Controller
 
                 Auth::login($searchUser);
 
-                return redirect('/dashboard');
+                return redirect()->intended(RouteServiceProvider::HOME);
 
             }else{
                 $googleUser = User::create([
                     'name' => $user->name,
                     'email' => $user->getEmail(),
                     'google_id'=> $user->getId(),
+                    'avatar' => $user->avatar,
                     'auth_type'=> 'google',
                     'password' => encrypt('gitpwd059')
                 ]);
 
                 Auth::login($googleUser);
 
-                return redirect('/dashboard');
+                return redirect()->intended(RouteServiceProvider::HOME);
             }
     }
 }

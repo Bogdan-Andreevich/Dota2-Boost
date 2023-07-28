@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Exception;
@@ -28,7 +29,7 @@ class SteamController extends Controller
 
                 Auth::login($searchUser);
 
-                return redirect('/dashboard');
+                return redirect()->intended(RouteServiceProvider::HOME);
 
             }else{
                 $steamUser = User::create([
@@ -43,7 +44,7 @@ class SteamController extends Controller
 
                 Auth::login($steamUser);
 
-                return redirect('/dashboard');
+                return redirect()->intended(RouteServiceProvider::HOME);
             }
     }
 }
