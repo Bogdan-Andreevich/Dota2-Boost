@@ -92,7 +92,7 @@
                                   </button>
                                   @else
                                       <div class="header-navigation__profile">
-                                          <a class="header-navigation__profile-button" href="{{ route('register') }}">
+                                          <a class="header-navigation__profile-button" href="{{ route('login') }}">
                                               <img
                                                   class="header-navigation__profile-button-icon"
                                                   src="{{asset('images/icons/account.svg')}}"

@@ -34,24 +34,24 @@
 
             <ul class="header-navigation__menu">
               <li class="header-navigation__menu-item">
-                <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> DotaBoost </a>
+                <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> {{__('DotaBoost')}} </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{url('/service')}}" class="header-navigation__menu-link"> Послуги </a>
+                <a href="{{url('/service')}}" class="header-navigation__menu-link"> {{__('Послуги')}} </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{url('/about')}}" class="header-navigation__menu-link"> Про нас </a>
+                <a href="{{url('/about')}}" class="header-navigation__menu-link"> {{__('Про нас')}} </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{url('/work')}}" class="header-navigation__menu-link"> Робота </a>
+                <a href="{{url('/work')}}" class="header-navigation__menu-link"> {{__('Робота')}} </a>
               </li>
               <li class="header-navigation__menu-item">
                 <a href="{{url('/blog')}}" class="header-navigation__menu-link">
-                  Блог
+                    {{__('Блог')}}
                 </a>
               </li>
               <li class="header-navigation__menu-item">
-                <a href="{{url('/FAQ')}}" class="header-navigation__menu-link"> FAQ </a>
+                <a href="{{url('/FAQ')}}" class="header-navigation__menu-link"> {{__('FAQ')}} </a>
               </li>
             </ul>
 
@@ -62,7 +62,7 @@
                   <img
                     class="header-navigation__profile-info-image"
                     alt="profile"
-                    src="{{ e(Auth::user()->avatar) ?? asset('images/profile-image.png') }}"
+                    src="{{ e(Auth::user()->avatar ?? asset('images/profile-image.png')) }}"
                   />
                   <p class="header-navigation__profile-info-name">{{ e(Auth::user()->name) }}</p>
                   <button class="header-navigation__profile-info-notification">
@@ -74,7 +74,7 @@
                   </button>
                     @else
                         <div class="header-navigation__profile">
-                            <a class="header-navigation__profile-button" href="{{ route('register') }}">
+                            <a class="header-navigation__profile-button" href="{{ route('login') }}">
                                 <img
                                     class="header-navigation__profile-button-icon"
                                     src="{{asset('images/icons/account.svg')}}"
@@ -99,7 +99,7 @@
                                           src="{{asset('images/icons/account.svg')}}"
                                           alt="icon-menu"
                                       />
-                                      Профіль
+                                      {{__('Профіль')}}
                                   </a>
                                   <a class="header-navigation__profile-menu-button" href="{{url('/settings')}}">
                                       <img
@@ -107,7 +107,7 @@
                                           src="{{asset('images/icons/settings-profile.svg')}}"
                                           alt="icon-menu"
                                       />
-                                      Налаштування
+                                      {{__('Налаштування')}}
                                   </a>
                                   <a class="header-navigation__profile-menu-button" href="{{ route('logout') }}"
                                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -172,25 +172,25 @@
         <div class="calculator-block">
           <div class="calculator__header">
             <h1 class="calculator__header-title">
-              Прорахуй ціну
-              <span class="calculator__header-title-span"> твого бусту! </span>
+                {{__('Прорахуй ціну')}}
+              <span class="calculator__header-title-span"> {{__('твого бусту!')}} </span>
             </h1>
             <div class="calculator__header-information">
               <div class="calculator__header-information-online">
                 <img
                   class="calculator__header-infomation-online-icon"
-                  src="./images/icons/person.svg"
+                  src="{{asset('images/icons/person.svg')}}"
                   alt="person"
                 />
-                42 Бустера Онлайн
+                  {{__('42 Бустера Онлайн')}}
               </div>
               <div class="calculator__header-information-security">
                 <img
                   class="calculator__header-infomation-security-icon"
-                  src="./images/icons/lock.svg"
+                  src="{{asset('images/icons/lock.svg')}}"
                   alt="security"
                 />
-                100% Гарантія Конфіденційності
+                  {{__('100% Гарантія Конфіденційності')}}
               </div>
             </div>
           </div>
@@ -200,7 +200,7 @@
               <div class="calculator__interface-elevated-advanced-lvl-first">
                 <img
                   class="calculator__interface-elevated-advanced-lvl-first-img"
-                  src="./images/lvl-first.png"
+                  src="{{asset('images/lvl-first.png')}}"
                 />
                 <p
                   class="calculator__interface-elevated-advanced-lvl-first-text"
@@ -1411,10 +1411,10 @@
         <div class="footer-block">
           <div class="footer-content">
             <div class="footer-content__settings">
-              <a class="footer-content__settings-logo">
+              <a class="footer-content__settings-logo" href="{{url('/')}}">
                 <img
                   class="footer-content__settings-logo-icon"
-                  src="./images/icons/logo.svg"
+                  src="{{asset('images/icons/logo.svg')}}"
                   alt="logo-footer"
                 />
               </a>
@@ -1424,7 +1424,7 @@
                   <img
                     class="footer-content__settings-security-button-icon"
                     alt="security"
-                    src="./images/icons/security.svg"
+                    src="{{asset('images/icons/security.svg')}}"
                   />
                 </a>
               </div>
@@ -1434,7 +1434,7 @@
                   <img
                     class="footer-content__settings-award-button-icon"
                     alt="award"
-                    src="./images/icons/award_star.svg"
+                    src="{{asset('images/icons/award_star.svg')}}"
                   />
                 </a>
               </div>
@@ -1475,43 +1475,43 @@
             </div>
 
             <div class="footer-content__company">
-              <p class="footer-content__company-title">Компанія</p>
+              <p class="footer-content__company-title">{{__('Компанія')}}</p>
               <ul class="footer-content__company-menu">
                 <li class="footer-content__company-item">
-                  <a class="footer-content__company-link">Послуги</a>
+                  <a class="footer-content__company-link">{{__('Послуги')}}</a>
                 </li>
                 <li class="footer-content__company-item">
-                  <a class="footer-content__company-link">Про Нас</a>
+                  <a class="footer-content__company-link" href="{{url('/about')}}">{{__('Про Нас')}}</a>
                 </li>
                 <li class="footer-content__company-item">
-                  <a class="footer-content__company-link">Робота</a>
+                  <a class="footer-content__company-link" href="{{url('/work')}}">{{__('Робота')}}</a>
                 </li>
                 <li class="footer-content__company-item">
-                  <a class="footer-content__company-link">Блог</a>
+                  <a class="footer-content__company-link" href="{{url('/blog')}}">{{__('Блог')}}</a>
                 </li>
                 <li class="footer-content__company-item">
-                  <a class="footer-content__company-link">FAQ</a>
+                  <a class="footer-content__company-link" href="{{url('/faq')}}}">{{__('FAQ')}}</a>
                 </li>
               </ul>
             </div>
             <div class="footer-content__policy">
-              <p class="footer-content__policy-title">Правові</p>
+              <p class="footer-content__policy-title">{{__('Правові')}}</p>
               <ul class="footer-content__policy-menu">
                 <li class="footer-content__policy-item">
                   <a class="footer-content__policy-link"
-                    >Політика Конфіденційності</a
+                    >{{__('Політика Конфіденційності')}}</a
                   >
                 </li>
                 <li class="footer-content__policy-item">
-                  <a class="footer-content__policy-link">Публічна Оферта</a>
+                  <a class="footer-content__policy-link">{{__('Публічна Оферта')}}</a>
                 </li>
               </ul>
             </div>
             <div class="footer-content__contacts">
-              <p class="footer-content__contacts-title">Контакти</p>
+              <p class="footer-content__contacts-title">{{__('Контакти')}}</p>
               <ul class="footer-content__contacts-menu">
                 <li class="footer-content__contacts-item">
-                  <a class="footer-content__contacts-link">Зв’язок з нами</a>
+                  <a class="footer-content__contacts-link">{{__('Зв’язок з нами')}}</a>
                 </li>
                 <li class="footer-content__contacts-item">
                   <a class="footer-content__contacts-link">Telegram</a>
@@ -1548,12 +1548,12 @@
 
           <div class="footer-by">
             <p class="footer-by-text">
-              Dota 2 є зареєстрованою торговою маркою компанії Valve
-              Corporation. Ми не пов'язані з компанією Valve Corporation, не
-              асоційовані з нею і не підтримуємо її. GameBoost не відображає
-              погляди чи думки Valve Corporation.
+                {{__(" Dota 2 є зареєстрованою торговою маркою компанії Valve
+                Corporation. Ми не пов'язані з компанією Valve Corporation, не
+                асоційовані з нею і не підтримуємо її. GameBoost не відображає
+                погляди чи думки Valve Corporation.")}}
             </p>
-            <p class="footer-by-text">Всі права захищені ©GAMEBOOST 2023</p>
+            <p class="footer-by-text">{{__('Всі права захищені ©GAMEBOOST 2023')}}</p>
           </div>
         </div>
       </div>

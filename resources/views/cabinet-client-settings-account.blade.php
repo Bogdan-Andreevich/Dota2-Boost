@@ -7,98 +7,146 @@
     <link rel="stylesheet" href="{{asset('styles/main.css')}}" />
   </head>
   <body>
-    <header class="header">
+  <!-- Header -->
+
+  <header class="header">
       <div class="first-container">
-        <div class="header-block">
-          <nav class="header-navigation">
-            <div class="header-navigation__logo">
-              <a href="/" class="header-navigation__logo-link">
-                <img
-                  class="header-navigation__logo-link-icon"
-                  src="./images/icons/logo-2.svg"
-                  alt="logo"
-                />
-              </a>
-            </div>
+          <div class="header-block">
+              <nav class="header-navigation">
+                  <div class="header-navigation__logo">
+                      <a href="{{ url('/') }}" class="header-navigation__logo-link">
+                          <img
+                              class="header-navigation__logo-link-icon"
+                              src="{{asset('images/icons/logo.svg')}}"
+                              alt="logo"
+                          />
+                      </a>
+                      <div class="header-navigation__logo-game">
+                          <button class="header-navigation__logo-game-react">
+                              <img
+                                  class="header-navigation__logo-game-react-decor"
+                                  src="{{asset('images/icons/dota2.svg')}}"
+                                  alt="dota2"
+                              />
+                              Dota 2
+                              <img
+                                  class="header-navigation__logo-game-react-icon"
+                                  src="{{asset('images/icons/arrow.svg')}}"
+                                  alt="arrow"
+                              />
+                          </button>
 
-            <ul class="header-navigation__menu">
-              <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> DotaBoost </a>
-              </li>
-              <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Послуги </a>
-              </li>
-              <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Про нас </a>
-              </li>
-              <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> Робота </a>
-              </li>
-              <li class="header-navigation__menu-item">
-                <a href="./blog.html" class="header-navigation__menu-link">
-                  Блог
-                </a>
-              </li>
-              <li class="header-navigation__menu-item">
-                <a href="/" class="header-navigation__menu-link"> FAQ </a>
-              </li>
-            </ul>
-
-            <div class="header-navigation__profile">
-              <div class="header-navigation__profile-info">
-                <div class="header-navigation__profile-info-block">
-                  <img
-                    class="header-navigation__profile-info-image"
-                    alt="profile"
-                    src="./images/profile-image.png"
-                  />
-                  <p class="header-navigation__profile-info-name">Marakesh</p>
-                  <button class="header-navigation__profile-info-notification">
-                    <img
-                      class="header-navigation__profile-info-notification-icon"
-                      alt="profile-icon"
-                      src="./images/icons/notifications.svg"
-                    />
-                  </button>
-                </div>
-
-                <div class="header-navigation__profile-menu-block">
-                  <div class="header-navigation__profile-menu">
-                    <a
-                      href="./cabinet.html"
-                      class="header-navigation__profile-menu-button"
-                    >
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/account.svg"
-                        alt="icon-menu"
-                      />
-                      Профіль
-                    </a>
-                    <button class="header-navigation__profile-menu-button">
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/settings-profile.svg"
-                        alt="icon-menu"
-                      />
-                      Налаштування
-                    </button>
-                    <button class="header-navigation__profile-menu-button">
-                      <img
-                        class="header-navigation__profile-menu-button-icon"
-                        src="./images/icons/out-profile.svg"
-                        alt="icon-menu"
-                      />
-                      Вихід
-                    </button>
+                          <div class="header-navigation__logo-game-selected">
+                              <button class="header-navigation__logo-game-selected-button">
+                                  <img
+                                      class="header-navigation__logo-game-react-decor"
+                                      src="{{asset('images/icons/dota2.svg')}}"
+                                      alt="dota2"
+                                  />
+                                  Dota 2
+                              </button>
+                          </div>
+                      </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
+
+
+                  <ul class="header-navigation__menu">
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> DotaBoost </a>
+                      </li>
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/service')}}" class="header-navigation__menu-link"> Послуги </a>
+                      </li>
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/about')}}" class="header-navigation__menu-link"> Про нас </a>
+                      </li>
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/work')}}" class="header-navigation__menu-link"> Робота </a>
+                      </li>
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/blog')}}" class="header-navigation__menu-link">
+                              Блог
+                          </a>
+                      </li>
+                      <li class="header-navigation__menu-item">
+                          <a href="{{url('/FAQ')}}" class="header-navigation__menu-link"> FAQ </a>
+                      </li>
+                  </ul>
+
+                  <div class="header-navigation__profile">
+                      <div class="header-navigation__profile-info">
+                          @auth
+                              <div class="header-navigation__profile-info-block">
+                                  <img
+                                      class="header-navigation__profile-info-image"
+                                      alt="profile"
+                                      src="{{ e(Auth::user()->avatar ?? asset('images/profile-image.png')) }}"
+                                  />
+                                  <p class="header-navigation__profile-info-name">{{ e(Auth::user()->name)}}</p>
+                                  <button class="header-navigation__profile-info-notification">
+                                      <img
+                                          class="header-navigation__profile-info-notification-icon"
+                                          alt="profile-icon"
+                                          src="{{asset('images/icons/notifications.svg')}}"
+                                      />
+                                  </button>
+                                  @else
+                                      <div class="header-navigation__profile">
+                                          <a class="header-navigation__profile-button" href="{{ route('login') }}">
+                                              <img
+                                                  class="header-navigation__profile-button-icon"
+                                                  src="{{asset('images/icons/account.svg')}}"
+                                                  alt="account"
+                                              />
+                                              {{(__('Особистий кабінет'))}}
+                                          </a>
+                                      </div>
+                                  @endauth
+                              </div>
+                              @auth
+                                  <div class="header-navigation__profile-menu-block">
+                                      <div class="header-navigation__profile-menu">
+                                          <a
+                                              href="{{url('/cabinet')}}"
+                                              class="header-navigation__profile-menu-button"
+                                          >
+                                              <img
+                                                  class="header-navigation__profile-menu-button-icon"
+                                                  src="{{asset('images/icons/account.svg')}}"
+                                                  alt="icon-menu"
+                                              />
+                                              Профіль
+                                          </a>
+                                          <a class="header-navigation__profile-menu-button" href="{{url('/settings')}}">
+                                              <img
+                                                  class="header-navigation__profile-menu-button-icon"
+                                                  src="{{asset('images/icons/settings-profile.svg')}}"
+                                                  alt="icon-menu"
+                                              />
+                                              Налаштування
+                                          </a>
+                                          <a class="header-navigation__profile-menu-button" href="{{ route('logout') }}"
+                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                              <img class="header-navigation__profile-menu-button-icon" src="{{ asset('images/icons/out-profile.svg') }}"
+                                                   alt="icon-menu"/>
+                                              {{ __('Вихід') }}
+                                          </a>
+
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              @csrf
+                                          </form>
+                                      </div>
+                                  </div>
+
+                              @endauth
+                      </div>
+                  </div>
+              </nav>
+          </div>
       </div>
-    </header>
+  </header>
+
+  <!-- !Header -->
 
     <section class="cabinet-client-settings">
       <div class="second-container">
@@ -122,7 +170,7 @@
             <button class="cabinet-client-settings-nav-button">
               <img
                 class="cabinet-client-settings-nav-button-icon"
-                src="./images/icons/notifications.svg"
+                src="{{asset('images/icons/notifications.svg')}}"
               />
               Повідомлення
             </button>

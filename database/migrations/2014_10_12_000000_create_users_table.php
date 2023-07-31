@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('profile_url')->nullable();
+            $table->string('auth_type')->nullable();
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('auth_type')->nullable();
+
         });
     }
 

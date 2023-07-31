@@ -17,6 +17,25 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    const ROLE_ADMIN = 'admin';
+    const ROLE_BOOSTER = 'booster';
+    const ROLE_USER = 'user';
+
+    public function isAdmin()
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isBooster()
+    {
+        return $this->role === self::ROLE_BOOSTER;
+    }
+
+    public function isUser()
+    {
+        return $this->role === self::ROLE_USER;
+    }
     protected $fillable = [
         'name',
         'email',

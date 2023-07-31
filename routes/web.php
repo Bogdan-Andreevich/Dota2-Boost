@@ -46,19 +46,21 @@ Route::get('/preparation', function () {
     return view('preparation');
 });
 
-Route::get('/cabinet', function () {
-    return view('cabinet-client');
-});
 
-Route::get('/settings', function () {
-    return view('cabinet-client-settings-account');
-});
 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/cabinet', function () {
+        return view('cabinet-client');
+    });
+
+    Route::get('/settings', function () {
+        return view('cabinet-client-settings-account');
+    });
 });
 
 require __DIR__.'/auth.php';
