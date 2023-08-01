@@ -17,36 +17,11 @@
                       <a href="{{ url('/') }}" class="header-navigation__logo-link">
                           <img
                               class="header-navigation__logo-link-icon"
-                              src="{{asset('images/icons/logo.svg')}}"
+                              src="{{asset('images/icons/logo-2.svg')}}"
                               alt="logo"
                           />
                       </a>
-                      <div class="header-navigation__logo-game">
-                          <button class="header-navigation__logo-game-react">
-                              <img
-                                  class="header-navigation__logo-game-react-decor"
-                                  src="{{asset('images/icons/dota2.svg')}}"
-                                  alt="dota2"
-                              />
-                              Dota 2
-                              <img
-                                  class="header-navigation__logo-game-react-icon"
-                                  src="{{asset('images/icons/arrow.svg')}}"
-                                  alt="arrow"
-                              />
-                          </button>
 
-                          <div class="header-navigation__logo-game-selected">
-                              <button class="header-navigation__logo-game-selected-button">
-                                  <img
-                                      class="header-navigation__logo-game-react-decor"
-                                      src="{{asset('images/icons/dota2.svg')}}"
-                                      alt="dota2"
-                                  />
-                                  Dota 2
-                              </button>
-                          </div>
-                      </div>
                   </div>
 
 
@@ -165,7 +140,7 @@
               <img
                 class="cabinet-control__info-image"
                 alt="avatar"
-                src="{{e(Auth::user()->avatar ?? asset('images/profile-image.png'))}}"
+                src="{{e(Auth::user()->avatar ?? asset('images/avatar.jpg'))}}"
               />
               <div class="cabinet-control__info-content">
                 <h3 class="cabinet-control__info-content-name">{{e(Auth::user()->name)}}</h3>

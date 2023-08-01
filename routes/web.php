@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
+
 
 Route::get('/work', function () {
     return view('work-us');
@@ -61,6 +61,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings', function () {
         return view('cabinet-client-settings-account');
     });
+
+
+    Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create-blog');
+    Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 });
 
 require __DIR__.'/auth.php';

@@ -55,17 +55,17 @@
                           <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> DotaBoost </a>
                       </li>
                       <li class="header-navigation__menu-item">
-                          <a href="{{url('/service')}}" class="header-navigation__menu-link"> Послуги </a>
+                          <a href="{{url('/service')}}" class="header-navigation__menu-link"> {{__('Послуги')}} </a>
                       </li>
                       <li class="header-navigation__menu-item">
-                          <a href="{{url('/about')}}" class="header-navigation__menu-link"> Про нас </a>
+                          <a href="{{url('/about')}}" class="header-navigation__menu-link"> {{__('Про нас')}} </a>
                       </li>
                       <li class="header-navigation__menu-item">
-                          <a href="{{url('/work')}}" class="header-navigation__menu-link"> Робота </a>
+                          <a href="{{url('/work')}}" class="header-navigation__menu-link"> {{__('Робота')}} </a>
                       </li>
                       <li class="header-navigation__menu-item">
                           <a href="{{url('/blog')}}" class="header-navigation__menu-link">
-                              Блог
+                              {{__('Блог')}}
                           </a>
                       </li>
                       <li class="header-navigation__menu-item">
@@ -115,7 +115,7 @@
                                                   src="{{asset('images/icons/account.svg')}}"
                                                   alt="icon-menu"
                                               />
-                                              Профіль
+                                              {{__('Профіль')}}
                                           </a>
                                           <a class="header-navigation__profile-menu-button" href="{{url('/settings')}}">
                                               <img
@@ -123,7 +123,7 @@
                                                   src="{{asset('images/icons/settings-profile.svg')}}"
                                                   alt="icon-menu"
                                               />
-                                              Налаштування
+                                              {{__('Налаштування')}}
                                           </a>
                                           <a class="header-navigation__profile-menu-button" href="{{ route('logout') }}"
                                              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -149,20 +149,20 @@
   <!-- !Header -->
 
     <!-- Hero -->
-
+  @foreach($posts as $post)
+    @if($post->pinned)
     <section class="blog-hero">
       <div class="blog-hero-block">
         <div class="second-container">
           <div class="blog-hero-content">
             <div class="blog-hero-date">
-              <p class="blog-hero-date-text">24 червня 2023р.</p>
+              <p class="blog-hero-date-text">{{$post->created_at}}</p>
               <p class="blog-hero-date-decor">Закріплений блог</p>
             </div>
             <h1 class="blog-hero-title">
-              The International 2023 Live Event Broadcast RFP and Broadcast
-              License
+                {{$post->title}}
             </h1>
-            <a class="blog-hero-link"
+            <a class="blog-hero-link" href="{{ route('blog.show', ['id' => $post->id]) }}">
               >Детальніше
               <img class="blog-hero-link-icon" src="./images/icons/arrow.svg"
             /></a>
@@ -170,289 +170,41 @@
         </div>
       </div>
     </section>
+    @endif
+  @endforeach
 
     <!-- !Hero -->
 
     <!-- Blog-Catalog -->
+
     <section class="blog-catalog">
       <div class="second-container">
         <ul class="blog-list">
+            @foreach($posts as $post)
+                @if(!$post->pinned)
           <li class="blog-item">
-            <a class="blog-link">
+            <a class="blog-link" href="{{ route('blog.show', ['id' => $post->id]) }}">
               <div class="blog-link-block">
                 <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
+                  <p class="blog-link-date">{{$post->created_at}}</p>
                   <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
+                      {{$post->title}}
                   </p>
                 </div>
 
                 <div class="blog-link-hidden">
                   <div class="blog-link-hidden-line"></div>
                   <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
+                      {{$post->content}}
                   </p>
                 </div>
               </div>
 
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
+              <img class="blog-link-img" src="{{asset('storage/' . $post->image) ?? asset('images/blog/blog-1.png')}}" />
             </a>
           </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
-          <li class="blog-item">
-            <a class="blog-link">
-              <div class="blog-link-block">
-                <div class="blog-link-info">
-                  <p class="blog-link-date">24 червня 2023р.</p>
-                  <p class="blog-link-title">
-                    Оголошено нового героя в Dota 2!
-                  </p>
-                </div>
-
-                <div class="blog-link-hidden">
-                  <div class="blog-link-hidden-line"></div>
-                  <p class="blog-link-hidden-text">
-                    Незабаром відбудеться десята річниця повноцінного виходу
-                    Dota 2 (так, ми працюємо над цікавинками до цієї події; ні,
-                    ми точно не встигнемо до вказаної в Steam дати 9 липня).
-                  </p>
-                </div>
-              </div>
-
-              <img class="blog-link-img" src="./images/blog/blog-1.png" />
-            </a>
-          </li>
+                @endif
+            @endforeach
         </ul>
 
         <ul class="blog-catalog__pagination">
@@ -482,6 +234,7 @@
         </ul>
       </div>
     </section>
+
     <!-- !Blog-Catalog -->
 
     <!-- Footer -->
