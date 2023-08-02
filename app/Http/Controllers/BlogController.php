@@ -15,7 +15,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        return view('blog.create-blog');
+        return view('admin-panel.create-blog');
     }
 
     public function store(Request $request)
@@ -67,6 +67,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $post = Posts::findOrFail($id);
-        return view('blog.show', compact('post'));
+        $posts = Posts::latest()->get();
+        return view('blog.show', compact('post','posts'));
     }
 }

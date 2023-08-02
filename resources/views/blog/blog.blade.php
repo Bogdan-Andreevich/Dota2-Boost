@@ -199,8 +199,12 @@
                   </p>
                 </div>
               </div>
+                @if(isset($post->image))
+                    <img class="blog-link-img" src="{{ asset('storage/' . $post->image) }}" />
+                @else
+                    <img class="blog-link-img" src="{{ asset('images/blog/blog-1.png') }}" />
+                @endif
 
-              <img class="blog-link-img" src="{{asset('storage/' . $post->image) ?? asset('images/blog/blog-1.png')}}" />
             </a>
           </li>
                 @endif

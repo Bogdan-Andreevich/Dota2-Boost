@@ -63,9 +63,15 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create-blog');
+    Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('admin-panel.admin');
     Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
     Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+
+    Route::get('/admin', function () {
+        return view('admin-panel.admin');
+    });
+
+
 });
 
 require __DIR__.'/auth.php';

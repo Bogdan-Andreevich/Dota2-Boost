@@ -62,7 +62,7 @@
                   <img
                     class="header-navigation__profile-info-image"
                     alt="profile"
-                    src="{{ e(Auth::user()->avatar ?? asset('images/profile-image.png')) }}"
+                    src="{{ e((Auth::user()->avatar) ?? asset('images/profile-image.png')) }}"
                   />
                   <p class="header-navigation__profile-info-name">{{ e(Auth::user()->name) }}</p>
                   <button class="header-navigation__profile-info-notification">
