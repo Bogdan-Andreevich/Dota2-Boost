@@ -1,0 +1,250 @@
+.header-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        &-link {
+            padding: 10px;
+            border-radius: 20px;
+            background: #181818;
+        }
+
+        &-game {
+            position: relative;
+            &:hover .header-navigation__logo-game-selected {
+                opacity: 1;
+                pointer-events: all;
+            }
+            &:hover .header-navigation__logo-game-react-icon {
+                transform: rotate(180deg);
+            }
+
+            &-react {
+                display: flex;
+                align-items: center;
+                border-radius: 20px;
+                background: #181818;
+                padding: 18px 36px;
+                gap: 10px;
+                color: #fff;
+                text-align: center;
+                font-size: 18px;
+                font-family: Montserrat;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background 250ms linear;
+
+                &:hover {
+                    background: #3c3c3c;
+                }
+
+                &-icon {
+                    transition: transform 250ms linear;
+                }
+            }
+
+            &-selected {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 250ms linear;
+                padding-top: 5px;
+
+                &.active {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+
+                &-button {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    border-radius: 20px;
+                    background: #181818;
+                    padding: 18px 36px;
+                    gap: 10px;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 18px;
+                    font-family: Montserrat;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: background 250ms linear;
+
+                    &:hover {
+                        background: #3c3c3c;
+                    }
+                }
+            }
+        }
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+
+        &-link {
+            color: #9b9b9b;
+            text-align: center;
+            font-size: 18px;
+            font-family: Gilroy;
+            font-weight: 600;
+            padding: 0 20px;
+            transition: color 250ms linear;
+            cursor: pointer;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &.current {
+                color: #fff;
+            }
+        }
+    }
+
+    &__profile {
+        position: relative;
+        cursor: pointer;
+
+        &:hover .header-navigation__profile-menu-block {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        &-button {
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            background: #181818;
+            padding: 18px 36px;
+            gap: 10px;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            font-family: Montserrat;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 250ms linear;
+
+            &:hover {
+                background: #3c3c3c;
+            }
+        }
+
+        max-width: 300px;
+        width: 100%;
+
+        &-info-block {
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            background: #101010;
+        }
+
+        &-info {
+            &-image {
+                border-radius: 20px 0px 0px 20px;
+                overflow: hidden;
+            }
+
+            &-name {
+                color: #fff;
+                text-align: center;
+                font-size: 18px;
+                font-family: Montserrat;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-left: 16px;
+            }
+
+            &-notification {
+                margin-left: auto;
+                padding: 20px;
+                cursor: pointer;
+            }
+        }
+
+        &-menu {
+            background: rgba(16, 16, 16, 1);
+            padding: 8px 0;
+            border-radius: 20px;
+            overflow: hidden;
+
+            &-block {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding-top: 10px;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 250ms linear;
+                z-index: 3;
+            }
+
+            &-button {
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 18px 36px;
+
+                color: #fff;
+                text-align: center;
+                font-size: 18px;
+                font-family: Gilroy;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+
+                background: rgba(16, 16, 16, 1);
+                cursor: pointer;
+                transition: background 250ms linear;
+
+                &:hover {
+                    background: rgb(33, 33, 33);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1920px) {
+    .header-navigation {
+        &__profile {
+            width: unset;
+            max-width: unset;
+            &-info {
+                &-name {
+                    display: none;
+                }
+
+                &-notification {
+                    display: none;
+                }
+
+                &-image {
+                    border-radius: 20px;
+                }
+            }
+
+            &-menu {
+                &-block {
+                    display: none;
+                }
+            }
+        }
+    }
+}
