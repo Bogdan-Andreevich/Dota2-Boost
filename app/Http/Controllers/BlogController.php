@@ -69,5 +69,6 @@ class BlogController extends Controller
         $post = Posts::findOrFail($id);
         $posts = Posts::latest()->get();
         return view('blog.show', compact('post','posts'));
+
     }
 }
