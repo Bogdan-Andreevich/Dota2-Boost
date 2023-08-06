@@ -782,6 +782,6 @@
       </div>
     </section>
 
-    <script src="./js/cabinet.js"></script>
+    <script src="{{asset('js/cabinet.js')}}"></script>
   </body>
 </html>

@@ -9,8 +9,9 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Posts::latest()->get();
-        return view('blog.blog', compact('posts'));
+        $posts = Posts::paginate(12);
+        $postPinned = Posts::latest()->get();
+        return view('blog.blog', compact('posts', 'postPinned' ));
     }
 
     public function create()
@@ -67,7 +68,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $post = Posts::findOrFail($id);
-        $posts = Posts::latest()->get();
+        $posts = Posts::paginate(3);
         return view('blog.show', compact('post','posts'));
 
     }

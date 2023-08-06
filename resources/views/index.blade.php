@@ -1444,7 +1444,7 @@
                   <img
                     class="footer-content__settings-lang-button-icon"
                     alt="lang"
-                    src="./images/icons/ua.svg"
+                    src="{{asset('images/icons/ua.svg')}}"
                   />
                 </button>
 
@@ -1453,21 +1453,21 @@
                     <img
                       class="footer-content__settings-lang-button-icon"
                       alt="lang"
-                      src="./images/icons/pl.svg"
+                      src="{{asset('images/icons/pl.svg')}}"
                     />
                   </button>
                   <button class="footer-content__settings-lang-button">
                     <img
                       class="footer-content__settings-lang-button-icon"
                       alt="lang"
-                      src="./images/icons/us.svg"
+                      src="{{asset('images/icons/us.svg')}}"
                     />
                   </button>
                   <button class="footer-content__settings-lang-button">
                     <img
                       class="footer-content__settings-lang-button-icon"
                       alt="lang"
-                      src="./images/icons/ru.svg"
+                      src="{{asset('images/icons/ru.svg')}}"
                     />
                   </button>
                 </div>
@@ -1514,10 +1514,10 @@
                   <a class="footer-content__contacts-link">{{__('Зв’язок з нами')}}</a>
                 </li>
                 <li class="footer-content__contacts-item">
-                  <a class="footer-content__contacts-link">Telegram</a>
+                  <a class="footer-content__contacts-link">{{__('Telegram')}}</a>
                 </li>
                 <li class="footer-content__contacts-item">
-                  <a class="footer-content__contacts-link">Instagram</a>
+                  <a class="footer-content__contacts-link">{{__('Instagram')}}</a>
                 </li>
               </ul>
             </div>
