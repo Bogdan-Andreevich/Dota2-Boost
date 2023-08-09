@@ -33,7 +33,6 @@ class BlogController extends Controller
             $validatedData['image'] = str_replace('public/', '', $imagePath);
         }
 
-        // If the post should be pinned, unpin the previously pinned post (if any)
         if ($request->has('pinned') && $request->input('pinned')) {
             Posts::where('pinned', true)->update(['pinned' => false]);
             $validatedData['pinned'] = true;
@@ -41,7 +40,6 @@ class BlogController extends Controller
 
         $post = Posts::create($validatedData);
 
-        // If the post should be pinned, update the pinned_post_id field
         if ($request->has('pinned') && $request->input('pinned')) {
             $post->update(['pinned_post_id' => $post->id]);
         }
@@ -55,10 +53,8 @@ class BlogController extends Controller
             'pinned_post_id' => 'required|exists:posts,id',
         ]);
 
-        // Unpin the previously pinned post (if any)
         Posts::where('pinned', true)->update(['pinned' => false]);
 
-        // Pin the selected post
         $post = Posts::find($request->input('pinned_post_id'));
         $post->update(['pinned' => true]);
 
@@ -72,4 +68,19 @@ class BlogController extends Controller
         return view('blog.show', compact('post','posts'));
 
     }
+
+    public function edit()
+    {
+        $posts = Posts::latest()->get();
+        return view('admin-panel.edit-blog', compact('posts'));
+    }
+
+    public function destroy($id)
+    {
+        $blog = Posts::findOrFail($id);
+        $blog->delete();
+        return redirect()->route('blogs.index')->with('success', 'Блог удален успешно');
+    }
 }
+
+

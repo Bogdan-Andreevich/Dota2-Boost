@@ -306,9 +306,15 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+        ['header' => 'BLOG'],
         [
-            'text' => 'blog',
+            'text' => 'Create a blog',
             'url'  => '/admin/blog/create',
+            'icon' => 'far fa-fw fa-newspaper',
+        ],
+        [
+            'text' => 'Show blogs',
+            'url'  => '/admin/blog/edit',
             'icon' => 'far fa-fw fa-newspaper',
         ],
         [
