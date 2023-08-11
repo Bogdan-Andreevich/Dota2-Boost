@@ -314,7 +314,7 @@ return [
         ],
         [
             'text' => 'Show blogs',
-            'url'  => '/admin/blog/edit',
+            'url'  => '/admin/blogs',
             'icon' => 'far fa-fw fa-newspaper',
         ],
         [

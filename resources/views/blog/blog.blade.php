@@ -149,20 +149,20 @@
   <!-- !Header -->
 
     <!-- Hero -->
-  @foreach($postPinned as $post)
-    @if($post->pinned)
+  @foreach($posts as $postPinned)
+    @if($postPinned->pinned)
     <section class="blog-hero">
       <div class="blog-hero-block">
         <div class="second-container">
           <div class="blog-hero-content">
             <div class="blog-hero-date">
-              <p class="blog-hero-date-text">{{$post->created_at}}</p>
+              <p class="blog-hero-date-text">{{$postPinned->created_at}}</p>
               <p class="blog-hero-date-decor">Закріплений блог</p>
             </div>
             <h1 class="blog-hero-title">
-                {{$post->title}}
+                {{$postPinned->title}}
             </h1>
-            <a class="blog-hero-link" href="{{ route('blog.show', ['id' => $post->id]) }}">
+            <a class="blog-hero-link" href="{{ route('blog.show', ['id' => $postPinned->id]) }}">
               Детальніше
               <img class="blog-hero-link-icon" src="{{asset('images/icons/arrow.svg')}}"
             /></a>
@@ -180,50 +180,51 @@
     <section class="blog-catalog">
       <div class="second-container">
         <ul class="blog-list">
-            @foreach($posts as $post)
-                @if(!$post->pinned)
+            @foreach($postsPaginate as $postPaginate)
+                @if(!$postPaginate->pinned)
           <li class="blog-item">
-            <a class="blog-link" href="{{ route('blog.show', ['id' => $post->id]) }}">
+            <a class="blog-link" href="{{ route('blog.show', ['id' => $postPaginate->id]) }}">
               <div class="blog-link-block">
                 <div class="blog-link-info">
-                  <p class="blog-link-date">{{$post->created_at}}</p>
+                  <p class="blog-link-date">{{$postPaginate->created_at}}</p>
                   <p class="blog-link-title">
-                      {{$post->title}}
+                      {{$postPaginate->title}}
                   </p>
                 </div>
 
                 <div class="blog-link-hidden">
                   <div class="blog-link-hidden-line"></div>
                   <p class="blog-link-hidden-text">
-                      {{$post->content}}
+                      {{$postPaginate->content}}
                   </p>
                 </div>
               </div>
-                @if(isset($post->image))
-                    <img class="blog-link-img" src="{{ asset('storage/' . $post->image) }}" />
+                @if(isset($postPaginate->image))
+                    <img class="blog-link-img" src="{{ asset('storage/' . $postPaginate->image) }}" />
                 @else
                     <img class="blog-link-img" src="{{ asset('images/blog/blog-1.png') }}" />
                 @endif
 
             </a>
           </li>
+
                 @endif
             @endforeach
         </ul>
 
         <ul class="blog-catalog__pagination">
             @php
-                $startPage = max(1, $posts->currentPage() - 3);
-                $endPage = min($startPage + 4, $posts->lastPage());
+                $startPage = max(1, $postsPaginate->currentPage() - 3);
+                $endPage = min($startPage + 4, $postsPaginate->lastPage());
             @endphp
 
         @for ($i = $startPage; $i <= $endPage; $i++)
-                <li class="blog-catalog__pagination-item {{ $posts->currentPage() == $i ? 'active' : '' }}">
-                    <a href="{{ $posts->url($i) }}" class="blog-catalog__pagination-link">{{ $i }}</a>
+                <li class="blog-catalog__pagination-item {{ $postsPaginate->currentPage() == $i ? 'active' : '' }}">
+                    <a href="{{ $postsPaginate->url($i) }}" class="blog-catalog__pagination-link">{{ $i }}</a>
                 </li>
             @endfor
           <li class="blog-catalog__pagination-item">
-            <a class="blog-catalog__pagination-link" href="{{ $posts->nextPageUrl() }}">
+            <a class="blog-catalog__pagination-link" href="{{ $postsPaginate->nextPageUrl() }}">
               <img
                 class="blog-catalog__pagination-link-icon"
                 src="{{asset('images/icons/arrow.svg')}}"

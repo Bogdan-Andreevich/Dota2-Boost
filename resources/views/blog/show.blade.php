@@ -190,8 +190,9 @@
           <div class="article-content-also">
             <h2 class="article-content-also-title">Читайте також</h2>
             <ul class="blog-list">
+                @php $count = 0; @endphp
                 @foreach($posts as $relatedPost)
-                    @if(!$relatedPost->pinned && $relatedPost->id !== $post->id)
+                    @if(!$relatedPost->pinned && $relatedPost->id !== $post->id && $count < 3)
                         <li class="blog-item">
                             <a class="blog-link" href="{{ route('blog.show', ['id' => $relatedPost->id]) }}">
                                 <div class="blog-link-block">
@@ -218,8 +219,12 @@
 
                             </a>
                         </li>
+                        @php $count++; @endphp
                     @endif
+
                 @endforeach
+
+
 
             </ul>
           </div>

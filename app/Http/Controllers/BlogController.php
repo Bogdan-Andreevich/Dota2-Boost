@@ -9,9 +9,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Posts::paginate(12);
-        $postPinned = Posts::latest()->get();
-        return view('blog.blog', compact('posts', 'postPinned' ));
+        $postsPaginate = Posts::paginate(15);
+        return view('blog.blog', compact('postsPaginate' ));
     }
 
     public function create()
@@ -64,23 +63,22 @@ class BlogController extends Controller
     public function show($id)
     {
         $post = Posts::findOrFail($id);
-        $posts = Posts::paginate(3);
-        return view('blog.show', compact('post','posts'));
+        return view('blog.show', compact('post'));
 
     }
 
-    public function edit()
-    {
-        $posts = Posts::latest()->get();
-        return view('admin-panel.edit-blog', compact('posts'));
-    }
-
-    public function destroy($id)
-    {
-        $blog = Posts::findOrFail($id);
-        $blog->delete();
-        return redirect()->route('blogs.index')->with('success', 'Блог удален успешно');
-    }
+//    public function edit()
+//    {
+//        $posts = Posts::latest()->get();
+//        return view('admin-panel.edit-blog', compact('posts'));
+//    }
+//
+//    public function destroy($id)
+//    {
+//        $blog = Posts::findOrFail($id);
+//        $blog->delete();
+//        return redirect()->route('blogs.index')->with('success', 'Блог удален успешно');
+//    }
 }
 
 
