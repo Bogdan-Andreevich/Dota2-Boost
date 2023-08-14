@@ -67,18 +67,56 @@ class BlogController extends Controller
 
     }
 
-//    public function edit()
-//    {
-//        $posts = Posts::latest()->get();
-//        return view('admin-panel.edit-blog', compact('posts'));
-//    }
-//
-//    public function destroy($id)
-//    {
-//        $blog = Posts::findOrFail($id);
-//        $blog->delete();
-//        return redirect()->route('blogs.index')->with('success', 'Блог удален успешно');
-//    }
+    public function edit($id)
+    {
+        $post = Posts::find($id);
+        return view('admin-panel.edit-blog', compact('post'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $post = Posts::findOrFail($id);
+
+        if (!$post) {
+
+        }
+
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'text' => 'required|string',
+            'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public');
+            $validatedData['image'] = str_replace('public/', '', $imagePath);
+        }
+
+        if ($request->has('pinned') && $request->input('pinned')) {
+            Posts::where('pinned', true)->update(['pinned' => false]);
+            $validatedData['pinned'] = true;
+        } else {
+            $validatedData['pinned'] = false;
+        }
+
+        $post->update($validatedData);
+
+        if ($request->has('pinned') && $request->input('pinned')) {
+            $post->update(['pinned_post_id' => $post->id]);
+        }
+
+
+        return redirect()->route('admin-panel.edit-blog', ['id' => $post->id])
+            ->with('success', 'Blog post updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        $blog = Posts::findOrFail($id);
+        $blog->delete();
+        return redirect()->route('admin-panel.show-blogs')->with('success', 'Блог удален успешно');
+    }
 }
 
 

@@ -66,8 +66,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('admin-panel.admin');
     Route::get('/admin/blogs', function () {
         return view('admin-panel.show-blogs');
-    });
-//    Route::delete('/admin/blog/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
+    })->name('admin-panel.show-blogs');
+    Route::get('/admin/edit/{id}', [BlogController::class, 'edit'])->name('admin-panel.edit-blog');
+    Route::put('/admin/update/{id}', [BlogController::class, 'update'])->name('admin-panel.update-blog');
+
+    Route::delete('/admin/blog/{id}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 
 
     Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');

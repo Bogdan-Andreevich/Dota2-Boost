@@ -164,8 +164,12 @@
             </h1>
             <a class="blog-hero-link" href="{{ route('blog.show', ['id' => $postPinned->id]) }}">
               Детальніше
-              <img class="blog-hero-link-icon" src="{{asset('images/icons/arrow.svg')}}"
-            /></a>
+                @if(isset($postPaginate->image))
+                    <img class="blog-hero-link-icon" src="{{ asset('storage/' . $postPaginate->image) }}" />
+                @else
+                    <img class="blog-hero-link-icon" src="{{asset('images/icons/arrow.svg')}}" />
+                @endif
+            </a>
           </div>
         </div>
       </div>
