@@ -34,7 +34,7 @@
 
             <ul class="header-navigation__menu">
               <li class="header-navigation__menu-item">
-                <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> {{__('DotaBoost')}} </a>
+                <a href="{{url('/')}}" class="header-navigation__menu-link"> {{__('DotaBoost')}} </a>
               </li>
               <li class="header-navigation__menu-item">
                 <a href="{{url('/service')}}" class="header-navigation__menu-link"> {{__('Послуги')}} </a>
@@ -998,51 +998,42 @@
             <div class="about-content__block">
               <div class="about-content__block-item">
                 <h3 class="about-content__block-item-title">
-                  Професійні бустери:
+                    {{ $content->title1 ?? '' }}
                   <span class="about-content__block-item-title-span"
-                    >ефективність від GameBoost</span
+                    >{{ $content->subtitle1 ?? '' }}</span
                   >
                 </h3>
                 <p class="about-content__block-item-description">
-                  GameBoost працює з висококваліфікованими та професійними
-                  бустерами. Наші експерти забезпечать найкращі результати
-                  прокачки вашого рейтингу та навичок у грі. Довіртеся
-                  професіоналам та досягніть максимальної ефективності в грі.
+                    {{ $content->content1 ?? '' }}
                 </p>
               </div>
-              <div class="about-content__block-item">
-                <h3 class="about-content__block-item-title">
-                  Професійні бустери:
-                  <span class="about-content__block-item-title-span"
-                    >ефективність від GameBoost</span
-                  >
-                </h3>
-                <p class="about-content__block-item-description">
-                  GameBoost працює з висококваліфікованими та професійними
-                  бустерами. Наші експерти забезпечать найкращі результати
-                  прокачки вашого рейтингу та навичок у грі. Довіртеся
-                  професіоналам та досягніть максимальної ефективності в грі.
-                </p>
-              </div>
-              <div class="about-content__block-item">
-                <h3 class="about-content__block-item-title">
-                  Професійні бустери:
-                  <span class="about-content__block-item-title-span"
-                    >ефективність від GameBoost</span
-                  >
-                </h3>
-                <p class="about-content__block-item-description">
-                  GameBoost працює з висококваліфікованими та професійними
-                  бустерами. Наші експерти забезпечать найкращі результати
-                  прокачки вашого рейтингу та навичок у грі. Довіртеся
-                  професіоналам та досягніть максимальної ефективності в грі.
-                </p>
-              </div>
+                <div class="about-content__block-item">
+                    <h3 class="about-content__block-item-title">
+                        {{ $content->title2 ?? '' }}
+                        <span class="about-content__block-item-title-span"
+                        >{{ $content->subtitle2 ?? '' }}</span
+                        >
+                    </h3>
+                    <p class="about-content__block-item-description">
+                        {{ $content->content2 ?? '' }}
+                    </p>
+                </div>
+                <div class="about-content__block-item">
+                    <h3 class="about-content__block-item-title">
+                        {{ $content->title3 ?? '' }}
+                        <span class="about-content__block-item-title-span"
+                        >{{ $content->subtitle3 ?? '' }}</span
+                        >
+                    </h3>
+                    <p class="about-content__block-item-description">
+                        {{ $content->content3 ?? '' }}
+                    </p>
+                </div>
             </div>
             <div class="about-content__image">
               <img
                 class="about-content__image-img"
-                src="./images/bg_about.png"
+                src="{{asset('images/bg_about.png')}}"
               />
             </div>
           </div>
@@ -1065,39 +1056,33 @@
             <div class="advantages-content__image">
               <img
                 class="advantages-content__image-img"
-                src="./images/bg_advantages.png"
+                src="{{asset('images/bg_advantages.png')}}"
               />
             </div>
 
             <div class="advantages-content__block">
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                  Спільний буст
+                    {{ $content->title4 ?? '' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                  Наші бустери забезпечують швидке та ефективне піднесення
-                  вашого рейтингу в Dota 2, допомагаючи вам досягти високих
-                  результатів.
+                    {{ $content->content4 ?? '' }}
                 </p>
               </div>
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                  Спільний буст
+                    {{ $content->title5 ?? '' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                  Наші бустери забезпечують швидке та ефективне піднесення
-                  вашого рейтингу в Dota 2, допомагаючи вам досягти високих
-                  результатів.
+                    {{ $content->content5 ?? '' }}
                 </p>
               </div>
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                  Спільний буст
+                    {{ $content->title6 ?? '' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                  Наші бустери забезпечують швидке та ефективне піднесення
-                  вашого рейтингу в Dota 2, допомагаючи вам досягти високих
-                  результатів.
+                    {{ $content->content6 ?? '' }}
                 </p>
               </div>
 
@@ -1119,161 +1104,53 @@
           <div class="blog-header">
             <h2 class="blog-header-title">Блог</h2>
 
-            <button class="blog-header-button">
+            <a class="blog-header-button" href="{{url('/blog')}}">
               <img
                 class="blog-header-button-icon"
-                src="./images/icons/arrow.svg"
+                src="{{asset('images/icons/arrow.svg')}}"
                 alt="blog-icon"
               />
-            </button>
+            </a>
           </div>
 
-          <ul class="blog-list">
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
+            <ul class="blog-list">
+                @php $count = 0; @endphp
+                @foreach($posts as $relatedPost)
+                    @if($count < 6)
+                        <li class="blog-item">
+                            <a class="blog-link" href="{{ route('blog.show', ['id' => $relatedPost->id]) }}">
+                                <div class="blog-link-block">
+                                    <div class="blog-link-info">
+                                        <p class="blog-link-date">{{$relatedPost->created_at}}</p>
+                                        <p class="blog-link-title">
+                                            {{$relatedPost->title}}
+                                        </p>
+                                    </div>
 
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
+                                    <div class="blog-link-hidden">
+                                        <div class="blog-link-hidden-line"></div>
+                                        <p class="blog-link-hidden-text">
+                                            {{$relatedPost->content}}
+                                        </p>
+                                    </div>
+                                </div>
 
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
+                                @if(isset($relatedPost->image))
+                                    <img class="blog-link-img" src="{{ asset('storage/' . $relatedPost->image) }}" />
+                                @else
+                                    <img class="blog-link-img" src="{{ asset('images/blog/blog-1.png') }}" />
+                                @endif
 
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
+                            </a>
+                        </li>
+                        @php $count++; @endphp
+                    @endif
 
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
+                @endforeach
 
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
 
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
 
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
-
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
-
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
-
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-            <li class="blog-item">
-              <a class="blog-link">
-                <div class="blog-link-block">
-                  <div class="blog-link-info">
-                    <p class="blog-link-date">24 червня 2023р.</p>
-                    <p class="blog-link-title">
-                      Оголошено нового героя в Dota 2!
-                    </p>
-                  </div>
-
-                  <div class="blog-link-hidden">
-                    <div class="blog-link-hidden-line"></div>
-                    <p class="blog-link-hidden-text">
-                      Незабаром відбудеться десята річниця повноцінного виходу
-                      Dota 2 (так, ми працюємо над цікавинками до цієї події;
-                      ні, ми точно не встигнемо до вказаної в Steam дати 9
-                      липня).
-                    </p>
-                  </div>
-                </div>
-
-                <img class="blog-link-img" src="./images/blog/blog-1.png" />
-              </a>
-            </li>
-          </ul>
+            </ul>
         </div>
       </div>
     </section>

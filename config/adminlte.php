@@ -318,58 +318,148 @@ return [
             'icon' => 'far fa-fw fa-newspaper',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+//            'text'        => 'pages',
+//            'url'         => 'admin/pages',
+//            'icon'        => 'far fa-fw fa-file',
+//            'label'       => 4,
+//            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'MANAGE PAGES'],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+//            'text' => 'change_password',
+//            'url'  => 'admin/settings',
+//            'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
+            'text'    => 'MainPage',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text' => 'About GameBoost',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text' => 'Create',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => 'Edit',
+                            'url' => '#',
                         ],
                     ],
                 ],
                 [
-                    'text' => 'level_one',
+                    'text'    => 'Raise your MMR with your personal skill',
+                    'url'     => '#',
+//                    'submenu' => [
+//                        [
+//                            'text' => 'level_two',
+//                            'url'  => '#',
+//                        ],
+//                        [
+//                            'text'    => 'level_two',
+//                            'url'     => '#',
+//                            'submenu' => [
+//                                [
+//                                    'text' => 'level_three',
+//                                    'url'  => '#',
+//                                ],
+//                                [
+//                                    'text' => 'level_three',
+//                                    'url'  => '#',
+//                                ],
+//                            ],
+//                        ],
+//                    ],
+                ],
+                [
+                    'text' => 'FAQ',
                     'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Service',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Boosting of the MMR Rating',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Additional Services',
+                    'url'     => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'About',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'First table',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Second table',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Third table',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Four table',
+                    'url'     => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Work',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Service',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Support',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Rewards',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Four table',
+                    'url'     => '#',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'FAQ',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Service',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Support',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Rewards',
+                    'url'     => '#',
+                ],
+                [
+                    'text'    => 'Four table',
+                    'url'     => '#',
                 ],
             ],
         ],

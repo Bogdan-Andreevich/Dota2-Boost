@@ -27,7 +27,7 @@
 
                   <ul class="header-navigation__menu">
                       <li class="header-navigation__menu-item">
-                          <a href="{{url('/preparation')}}" class="header-navigation__menu-link"> DotaBoost </a>
+                          <a href="{{url('/')}}" class="header-navigation__menu-link"> DotaBoost </a>
                       </li>
                       <li class="header-navigation__menu-item">
                           <a href="{{url('/service')}}" class="header-navigation__menu-link"> Послуги </a>

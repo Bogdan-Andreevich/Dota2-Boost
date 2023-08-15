@@ -107,7 +107,7 @@ class BlogController extends Controller
         }
 
 
-        return redirect()->route('admin-panel.edit-blog', ['id' => $post->id])
+        return redirect()->route('admin-panel.show-blogs', ['id' => $post->id])
             ->with('success', 'Blog post updated successfully');
     }
 

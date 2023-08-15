@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MainPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,11 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [MainPageController::class, 'index'])->name('index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
 
@@ -80,6 +79,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return view('admin-panel.admin');
     });
+
+    Route::post('/admin/article/create', [MainPageController::class, 'store'])->name('index.store');
+    Route::get('/admin/article/create', [MainPageController::class, 'create'])->name('admin-panel.create-2-forms-for-MainPage');
 
 
 });
