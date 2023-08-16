@@ -41,7 +41,7 @@ class MainPageController extends Controller
         ]);
 
 
-        $content = MainPage::create($validatedData);
+        MainPage::create($validatedData);
 
         return redirect()->route('admin-panel.create-2-forms-for-MainPage')->with('success', 'Post created successfully!');
     }

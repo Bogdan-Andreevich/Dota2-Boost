@@ -13,6 +13,25 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->string('mainTitle');
+            $table->string('animalTitle');
+            $table->string('animalSubtitle');
+            $table->text('animalContent1');
+            $table->text('animalContent2');
+
+            $table->string('courierTitle');
+            $table->string('courierSubtitle');
+            $table->text('courierContent');
+
+            $table->string('wardTitle');
+            $table->string('wardSubtitle');
+            $table->text('wardContent');
+
+            $table->string('techiesTitle1');
+            $table->string('techiesSubtitle1');
+            $table->text('techiesContent1');
+            $table->string('techiesTitle2');
+            $table->text('techiesContent2');
             $table->timestamps();
         });
     }

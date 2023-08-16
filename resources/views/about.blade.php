@@ -154,7 +154,7 @@
           <div class="about-page-head">
             <p class="about-page-head-span">Про нас</p>
             <h1 class="about-page-head-title">
-              Провідний Сервіс Українського Геймінгу для Вашого Успіху
+                {{ $content->mainTitle ?? '' }}
             </h1>
           </div>
 
@@ -163,26 +163,19 @@
               <div class="about-page-lead-image">
                 <img
                   class="about-page-lead-image-img"
-                  src="./images/about/snapfire.png"
+                  src="{{asset('images/about/snapfire.png')}}"
                 />
               </div>
               <div class="about-page-lead-content">
-                <p class="about-page-lead-content-span">GameBoost</p>
+                <p class="about-page-lead-content-span">{{ $content->animalTitle ?? '' }}</p>
                 <h2 class="about-page-lead-content-title">
-                  Незаперечний лідер українського геймінгу
+                    {{ $content->animalSubtitle ?? '' }}
                 </h2>
                 <p class="about-page-lead-content-desc">
-                  Наш сервіс є вірним супутником геймерів, які прагнуть
-                  досягнути вершин ігрового успіху. Вибираючи нас, ви обираєте
-                  команду професіоналів, готових підкорити будь-які виклики
-                  світу геймінгу.
+                    {{ $content->animalContent1 ?? '' }}
                 </p>
                 <p class="about-page-lead-content-desc">
-                  Ми пишаємося тим, що наш сервіс є виключно українським. Ми
-                  глибоко віримо в потенціал нашої країни та прагнемо
-                  підтримувати український геймінг на найвищому рівні. Кожен
-                  аспект нашого сервісу пронизаний духом української
-                  незламності.
+                    {{ $content->animalContent2 ?? '' }}
                 </p>
               </div>
             </div>
@@ -192,23 +185,19 @@
             <div class="about-page-community-block">
               <div class="about-page-community-content">
                 <p class="about-page-community-content-span">
-                  Від Бустерів до клієнтів
+                    {{ $content->courierTitle ?? '' }}
                 </p>
                 <h2 class="about-page-community-content-title">
-                  Спільнота професіоналів, що реалізують ваші амбіції
+                    {{ $content->courierSubtitle ?? '' }}
                 </h2>
                 <p class="about-page-community-content-desc">
-                  Ми знаємо, що кожен момент у грі має велике значення, тому ми
-                  пропонуємо послуги найвищої якості, які неодмінно збільшать
-                  ваш потенціал. Наші експерти мають розширений досвід у грі та
-                  глибоке розуміння нюансів, що дозволяє нам забезпечити
-                  найкращі результати.
+                    {{ $content->courierContent ?? '' }}
                 </p>
               </div>
               <div class="about-page-community-image">
                 <img
                   class="about-page-community-image-img"
-                  src="./images/about/courier.png"
+                  src="{{asset('images/about/courier.png')}}"
                 />
               </div>
             </div>
@@ -220,22 +209,18 @@
                 <div class="about-page-process-image">
                   <img
                     class="about-page-process-image-img"
-                    src="./images/about/observer_ward.png"
+                    src="{{asset('images/about/observer_ward.png')}}"
                   />
                 </div>
                 <div class="about-page-process-content">
                   <p class="about-page-process-content-span">
-                    Повна прозорість
+                      {{ $content->wardTitle ?? '' }}
                   </p>
                   <h2 class="about-page-process-content-title">
-                    Дізнайтеся все про процес бустингу!
+                      {{ $content->wardSubtitle ?? '' }}
                   </h2>
                   <p class="about-page-process-content-desc">
-                    У нашому сервісі ми прагнемо до повної прозорості щодо
-                    процесу бустингу. Ми розуміємо, наскільки важлива для вас є
-                    впевненість в тому, що ваш аккаунт знаходиться у надійних
-                    руках. Тому ми зобов'язуємося надавати всю необхідну
-                    інформацію про наші дії та процес бустингу.
+                      {{ $content->wardContent ?? '' }}
                   </p>
                 </div>
               </div>
@@ -255,7 +240,7 @@
                 <button class="about-page-process-check-button">
                   <img
                     class="about-page-process-check-button-icon"
-                    src="./images/icons/accept.svg"
+                    src="{{asset('images/icons/accept.svg')}}"
                   />
                   Перевірити Замовлення
                 </button>
@@ -266,34 +251,27 @@
           <div class="about-page-team">
             <div class="about-page-team-block">
               <div class="about-page-team-content">
-                <p class="about-page-team-content-span">Наша Команда</p>
+                <p class="about-page-team-content-span">{{ $content->techiesTitle1 ?? '' }}</p>
                 <h2 class="about-page-team-content-title">
-                  Спільні зусилля для незабутніх вражень
+                    {{ $content->techiesSubtitle1 ?? '' }}
                 </h2>
                 <p class="about-page-team-content-desc">
-                  Справжні ентузіасти, що об'єднались метою створення незабутних
-                  вражень для кожного клієнта. Ми впевнені, спільні зусилля
-                  призводять до неймовірних результатів. Довірте нам свої
-                  геймінгові цілі, а ми допоможемо вам їх досягти.
+                    {{ $content->techiesContent1 ?? '' }}
                 </p>
                 <p
                   class="about-page-team-content-span"
                   style="margin-top: 32px"
                 >
-                  Наші Бустери
+                    {{ $content->techiesTitle2 ?? '' }}
                 </p>
                 <p class="about-page-team-content-desc">
-                  Справжні професіонали, які засвоїли всі секрети геймінгу. Їх
-                  знання та вміння дозволяють забезпечити безпрецедентну якість
-                  та ефективність виконання наших послуг. Ми чудово розуміємо
-                  вашу страсть до гри та допоможемо вам втілити всі ваші
-                  геймінгові мрії в реальність.
+                    {{ $content->techiesContent2 ?? '' }}
                 </p>
               </div>
               <div class="about-page-team-image">
                 <img
                   class="about-page-team-image-img"
-                  src="./images/about/kill_formula.png"
+                  src="{{asset('images/about/kill_formula.png')}}"
                 />
               </div>
             </div>
@@ -307,7 +285,7 @@
                     <div class="about-page-users-item-info-profile">
                       <img
                         class="about-page-users-item-info-profile-avatar"
-                        src="./images/avatar.jpg"
+                        src="{{asset('images/avatar.jpg')}}"
                       />
                       <div class="about-page-users-item-info-profile-head">
                         <p
@@ -320,7 +298,7 @@
                           Marakesh
                           <img
                             class="about-page-users-item-info-profile-head-name-accept"
-                            src="./images/icons/new_releases.svg"
+                            src="{{asset('images/icons/new_releases.svg')}}"
                           />
                         </p>
                       </div>
@@ -330,7 +308,7 @@
                       <p class="about-page-users-item-info-view-like">
                         <img
                           class="about-page-users-item-info-view-like-icon"
-                          src="./images/icons/thumb_up.svg"
+                          src="{{asset('images/icons/thumb_up.svg')}}"
                         />
                         150
                       </p>
@@ -338,7 +316,7 @@
                       <button class="about-page-users-item-info-view-button">
                         <img
                           class="about-page-users-item-info-view-button-icon"
-                          src="./images/icons/arrow.svg"
+                          src="{{asset('images/icons/arrow.svg')}}"
                         />
                       </button>
                     </div>
@@ -348,7 +326,7 @@
                       <div class="about-page-users-item-stats-game">
                         <img
                           class="about-page-users-item-stats-game-icon"
-                          src="./images/icons/dota2.svg"
+                          src="{{asset('images/icons/dota2.svg')}}"
                         />
                         <div class="about-page-users-item-stats-game-head">
                           <p class="about-page-users-item-stats-game-head-text">
@@ -364,7 +342,7 @@
                       <div class="about-page-users-item-stats-rank">
                         <img
                           class="about-page-users-item-stats-rank-icon"
-                          src="./images/icons/rank.png"
+                          src="{{asset('images/icons/rank.png')}}"
                         />
                         <div class="about-page-users-item-stats-rank-head">
                           <p class="about-page-users-item-stats-rank-head-text">
@@ -411,7 +389,7 @@
                     <div class="about-page-users-item-info-profile">
                       <img
                         class="about-page-users-item-info-profile-avatar"
-                        src="./images/avatar.jpg"
+                        src="{{asset('images/avatar.jpg')}}"
                       />
                       <div class="about-page-users-item-info-profile-head">
                         <p
@@ -424,7 +402,7 @@
                           Marakesh
                           <img
                             class="about-page-users-item-info-profile-head-name-accept"
-                            src="./images/icons/new_releases.svg"
+                            src="{{asset('images/icons/new_releases.svg')}}"
                           />
                         </p>
                       </div>
@@ -434,7 +412,7 @@
                       <p class="about-page-users-item-info-view-like">
                         <img
                           class="about-page-users-item-info-view-like-icon"
-                          src="./images/icons/thumb_up.svg"
+                          src="{{asset('images/icons/thumb_up.svg')}}"
                         />
                         150
                       </p>
@@ -442,7 +420,7 @@
                       <button class="about-page-users-item-info-view-button">
                         <img
                           class="about-page-users-item-info-view-button-icon"
-                          src="./images/icons/arrow.svg"
+                          src="{{asset('images/icons/arrow.svg')}}"
                         />
                       </button>
                     </div>
@@ -452,7 +430,7 @@
                       <div class="about-page-users-item-stats-game">
                         <img
                           class="about-page-users-item-stats-game-icon"
-                          src="./images/icons/dota2.svg"
+                          src="{{asset('images/icons/dota2.svg')}}"
                         />
                         <div class="about-page-users-item-stats-game-head">
                           <p class="about-page-users-item-stats-game-head-text">
@@ -468,7 +446,7 @@
                       <div class="about-page-users-item-stats-rank">
                         <img
                           class="about-page-users-item-stats-rank-icon"
-                          src="./images/icons/rank.png"
+                          src="{{asset('images/icons/rank.png')}}"
                         />
                         <div class="about-page-users-item-stats-rank-head">
                           <p class="about-page-users-item-stats-rank-head-text">
@@ -515,7 +493,7 @@
                     <div class="about-page-users-item-info-profile">
                       <img
                         class="about-page-users-item-info-profile-avatar"
-                        src="./images/avatar.jpg"
+                        src="{{asset('images/avatar.jpg')}}"
                       />
                       <div class="about-page-users-item-info-profile-head">
                         <p
@@ -528,7 +506,7 @@
                           Marakesh
                           <img
                             class="about-page-users-item-info-profile-head-name-accept"
-                            src="./images/icons/new_releases.svg"
+                            src="{{asset('images/icons/new_releases.svg')}}"
                           />
                         </p>
                       </div>
@@ -538,7 +516,7 @@
                       <p class="about-page-users-item-info-view-like">
                         <img
                           class="about-page-users-item-info-view-like-icon"
-                          src="./images/icons/thumb_up.svg"
+                          src="{{asset('images/icons/thumb_up.svg')}}"
                         />
                         150
                       </p>
@@ -546,7 +524,7 @@
                       <button class="about-page-users-item-info-view-button">
                         <img
                           class="about-page-users-item-info-view-button-icon"
-                          src="./images/icons/arrow.svg"
+                          src="{{asset('images/icons/arrow.svg')}}"
                         />
                       </button>
                     </div>
@@ -556,7 +534,7 @@
                       <div class="about-page-users-item-stats-game">
                         <img
                           class="about-page-users-item-stats-game-icon"
-                          src="./images/icons/dota2.svg"
+                          src="{{asset('images/icons/dota2.svg')}}"
                         />
                         <div class="about-page-users-item-stats-game-head">
                           <p class="about-page-users-item-stats-game-head-text">
@@ -572,7 +550,7 @@
                       <div class="about-page-users-item-stats-rank">
                         <img
                           class="about-page-users-item-stats-rank-icon"
-                          src="./images/icons/rank.png"
+                          src="{{asset('images/icons/rank.png')}}"
                         />
                         <div class="about-page-users-item-stats-rank-head">
                           <p class="about-page-users-item-stats-rank-head-text">

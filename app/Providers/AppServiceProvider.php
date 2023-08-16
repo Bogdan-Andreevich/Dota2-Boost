@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\FAQ;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Posts;
 use App\Models\MainPage;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::share('posts', Posts::latest()->get());
+        if (Schema::hasTable('f_a_q_s')) {
+            View::share('faqs', FAQ::latest()->get());
+        }
     }
 }

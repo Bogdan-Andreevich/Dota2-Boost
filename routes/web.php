@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\AboutPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +35,7 @@ Route::get('/service', function () {
     return view('service-boost');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', [AboutPageController::class, 'index'])->name('about');
 
 Route::get('/FAQ', function () {
     return view('faq');
@@ -80,9 +80,24 @@ Route::middleware('auth')->group(function () {
         return view('admin-panel.admin');
     });
 
-    Route::post('/admin/article/create', [MainPageController::class, 'store'])->name('index.store');
+    Route::post('/admin/article/create', [MainPageController::class, 'store']);
     Route::get('/admin/article/create', [MainPageController::class, 'create'])->name('admin-panel.create-2-forms-for-MainPage');
 
+    Route::post('/admin/about/create', [AboutPageController::class, 'store']);
+    Route::get('/admin/about/create', [AboutPageController::class, 'create'])->name('admin-panel.create-4-forms-for-AboutPage');
+
+
+
+    Route::post('/admin/faq/create', [FAQController::class, 'store']);
+    Route::get('/admin/faq/create', [FAQController::class, 'create'])->name('admin-panel.create-faq');
+
+    Route::get('/admin/faqs', function () {
+        return view('admin-panel.show-faqs');
+    })->name('admin-panel.show-faqs');
+
+    Route::get('/admin/edit/faq/{id}', [FAQController::class, 'edit'])->name('admin-panel.edit-faq');
+    Route::put('/admin/update/faq/{id}', [FAQController::class, 'update'])->name('admin-panel.update-faq');
+    Route::delete('/admin/faq/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
 
 });
 

@@ -341,144 +341,88 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'About GameBoost',
-                    'submenu' => [
-                        [
-                            'text' => 'Create',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'Edit',
-                            'url' => '#',
-                        ],
-                    ],
-                ],
-                [
-                    'text'    => 'Raise your MMR with your personal skill',
-                    'url'     => '#',
-//                    'submenu' => [
-//                        [
-//                            'text' => 'level_two',
-//                            'url'  => '#',
-//                        ],
-//                        [
-//                            'text'    => 'level_two',
-//                            'url'     => '#',
-//                            'submenu' => [
-//                                [
-//                                    'text' => 'level_three',
-//                                    'url'  => '#',
-//                                ],
-//                                [
-//                                    'text' => 'level_three',
-//                                    'url'  => '#',
-//                                ],
-//                            ],
-//                        ],
-//                    ],
-                ],
-                [
-                    'text' => 'FAQ',
-                    'url'  => '#',
+                    'text' => 'Make contents for 2 forms',
+                    'url'  => '/admin/article/create',
                 ],
             ],
         ],
-        [
-            'text'    => 'Service',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Boosting of the MMR Rating',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Additional Services',
-                    'url'     => '#',
-                ],
-            ],
-        ],
+
+//        [
+//            'text'    => 'Service',
+//            'icon'    => 'fas fa-fw fa-share',
+//            'submenu' => [
+//                [
+//                    'text' => 'Boosting of the MMR Rating',
+//                    'url'  => '#',
+//                ],
+//                [
+//                    'text'    => 'Additional Services',
+//                    'url'     => '#',
+//                ],
+//            ],
+//        ],
         [
             'text'    => 'About',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'First table',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Second table',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Third table',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Four table',
-                    'url'     => '#',
+                    'text' => 'Make contents for 4 forms',
+                    'url'  => '/admin/about/create',
                 ],
             ],
         ],
-        [
-            'text'    => 'Work',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Service',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Support',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Rewards',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Four table',
-                    'url'     => '#',
-                ],
-            ],
-        ],
+//        [
+//            'text'    => 'Work',
+//            'icon'    => 'fas fa-fw fa-share',
+//            'submenu' => [
+//                [
+//                    'text' => 'Service',
+//                    'url'  => '#',
+//                ],
+//                [
+//                    'text'    => 'Support',
+//                    'url'     => '#',
+//                ],
+//                [
+//                    'text'    => 'Rewards',
+//                    'url'     => '#',
+//                ],
+//                [
+//                    'text'    => 'Four table',
+//                    'url'     => '#',
+//                ],
+//            ],
+//        ],
         [
             'text'    => 'FAQ',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Service',
-                    'url'  => '#',
+                    'text'    => 'Show FAQ',
+                    'url'     => '/admin/faqs',
                 ],
                 [
-                    'text'    => 'Support',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Rewards',
-                    'url'     => '#',
-                ],
-                [
-                    'text'    => 'Four table',
-                    'url'     => '#',
+                    'text' => 'Create a FAQ',
+                    'url'  => '/admin/faq/create',
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+//        ['header' => 'labels'],
+//        [
+//            'text'       => 'important',
+//            'icon_color' => 'red',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'warning',
+//            'icon_color' => 'yellow',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'information',
+//            'icon_color' => 'cyan',
+//            'url'        => '#',
+//        ],
     ],
 
     /*
