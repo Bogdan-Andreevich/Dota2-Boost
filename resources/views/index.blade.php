@@ -998,35 +998,35 @@
             <div class="about-content__block">
               <div class="about-content__block-item">
                 <h3 class="about-content__block-item-title">
-                    {{ $content->title1 ?? '' }}
+                    {{ $content->title1 ?? 'Text...' }}
                   <span class="about-content__block-item-title-span"
-                    >{{ $content->subtitle1 ?? '' }}</span
+                    >{{ $content->subtitle1 ?? 'Text...' }}</span
                   >
                 </h3>
                 <p class="about-content__block-item-description">
-                    {{ $content->content1 ?? '' }}
+                    {{ $content->content1 ?? 'Text...' }}
                 </p>
               </div>
                 <div class="about-content__block-item">
                     <h3 class="about-content__block-item-title">
-                        {{ $content->title2 ?? '' }}
+                        {{ $content->title2 ?? 'Text...' }}
                         <span class="about-content__block-item-title-span"
-                        >{{ $content->subtitle2 ?? '' }}</span
+                        >{{ $content->subtitle2 ?? 'Text...' }}</span
                         >
                     </h3>
                     <p class="about-content__block-item-description">
-                        {{ $content->content2 ?? '' }}
+                        {{ $content->content2 ?? 'Text...' }}
                     </p>
                 </div>
                 <div class="about-content__block-item">
                     <h3 class="about-content__block-item-title">
-                        {{ $content->title3 ?? '' }}
+                        {{ $content->title3 ?? 'Text...' }}
                         <span class="about-content__block-item-title-span"
-                        >{{ $content->subtitle3 ?? '' }}</span
+                        >{{ $content->subtitle3 ?? 'Text...' }}</span
                         >
                     </h3>
                     <p class="about-content__block-item-description">
-                        {{ $content->content3 ?? '' }}
+                        {{ $content->content3 ?? 'Text...' }}
                     </p>
                 </div>
             </div>
@@ -1063,26 +1063,26 @@
             <div class="advantages-content__block">
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                    {{ $content->title4 ?? '' }}
+                    {{ $content->title4 ?? 'Text...' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                    {{ $content->content4 ?? '' }}
+                    {{ $content->content4 ?? 'Text...' }}
                 </p>
               </div>
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                    {{ $content->title5 ?? '' }}
+                    {{ $content->title5 ?? 'Text...' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                    {{ $content->content5 ?? '' }}
+                    {{ $content->content5 ?? 'Text...' }}
                 </p>
               </div>
               <div class="advantages-content__block-item">
                 <h3 class="advantages-content__block-item-title">
-                    {{ $content->title6 ?? '' }}
+                    {{ $content->title6 ?? 'Text...' }}
                 </h3>
                 <p class="advantages-content__block-item-description">
-                    {{ $content->content6 ?? '' }}
+                    {{ $content->content6 ?? 'Text...' }}
                 </p>
               </div>
 
@@ -1354,5 +1354,8 @@
     <script src="{{asset('js/faq.js')}}"></script>
     <script src="{{asset('js/hero-slider.js')}}"></script>
     <script src="{{asset('js/calculator.js')}}"></script>
+
+
+
   </body>
 </html>

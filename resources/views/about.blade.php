@@ -154,7 +154,7 @@
           <div class="about-page-head">
             <p class="about-page-head-span">Про нас</p>
             <h1 class="about-page-head-title">
-                {{ $content->mainTitle ?? '' }}
+                {{ $content->mainTitle ?? 'Text...' }}
             </h1>
           </div>
 
@@ -167,15 +167,15 @@
                 />
               </div>
               <div class="about-page-lead-content">
-                <p class="about-page-lead-content-span">{{ $content->animalTitle ?? '' }}</p>
+                <p class="about-page-lead-content-span">{{ $content->animalTitle ?? 'Text...' }}</p>
                 <h2 class="about-page-lead-content-title">
-                    {{ $content->animalSubtitle ?? '' }}
+                    {{ $content->animalSubtitle ?? 'Text...' }}
                 </h2>
                 <p class="about-page-lead-content-desc">
-                    {{ $content->animalContent1 ?? '' }}
+                    {{ $content->animalContent1 ?? 'Text...' }}
                 </p>
                 <p class="about-page-lead-content-desc">
-                    {{ $content->animalContent2 ?? '' }}
+                    {{ $content->animalContent2 ?? 'Text...' }}
                 </p>
               </div>
             </div>
@@ -185,13 +185,13 @@
             <div class="about-page-community-block">
               <div class="about-page-community-content">
                 <p class="about-page-community-content-span">
-                    {{ $content->courierTitle ?? '' }}
+                    {{ $content->courierTitle ?? 'Text...' }}
                 </p>
                 <h2 class="about-page-community-content-title">
-                    {{ $content->courierSubtitle ?? '' }}
+                    {{ $content->courierSubtitle ?? 'Text...' }}
                 </h2>
                 <p class="about-page-community-content-desc">
-                    {{ $content->courierContent ?? '' }}
+                    {{ $content->courierContent ?? 'Text...' }}
                 </p>
               </div>
               <div class="about-page-community-image">
@@ -214,13 +214,13 @@
                 </div>
                 <div class="about-page-process-content">
                   <p class="about-page-process-content-span">
-                      {{ $content->wardTitle ?? '' }}
+                      {{ $content->wardTitle ?? 'Text...' }}
                   </p>
                   <h2 class="about-page-process-content-title">
-                      {{ $content->wardSubtitle ?? '' }}
+                      {{ $content->wardSubtitle ?? 'Text...' }}
                   </h2>
                   <p class="about-page-process-content-desc">
-                      {{ $content->wardContent ?? '' }}
+                      {{ $content->wardContent ?? 'Text...' }}
                   </p>
                 </div>
               </div>
@@ -251,21 +251,21 @@
           <div class="about-page-team">
             <div class="about-page-team-block">
               <div class="about-page-team-content">
-                <p class="about-page-team-content-span">{{ $content->techiesTitle1 ?? '' }}</p>
+                <p class="about-page-team-content-span">{{ $content->techiesTitle1 ?? 'Text...' }}</p>
                 <h2 class="about-page-team-content-title">
-                    {{ $content->techiesSubtitle1 ?? '' }}
+                    {{ $content->techiesSubtitle1 ?? 'Text...' }}
                 </h2>
                 <p class="about-page-team-content-desc">
-                    {{ $content->techiesContent1 ?? '' }}
+                    {{ $content->techiesContent1 ?? 'Text...' }}
                 </p>
                 <p
                   class="about-page-team-content-span"
                   style="margin-top: 32px"
                 >
-                    {{ $content->techiesTitle2 ?? '' }}
+                    {{ $content->techiesTitle2 ?? 'Text...' }}
                 </p>
                 <p class="about-page-team-content-desc">
-                    {{ $content->techiesContent2 ?? '' }}
+                    {{ $content->techiesContent2 ?? 'Text...' }}
                 </p>
               </div>
               <div class="about-page-team-image">

@@ -24,7 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('posts', Posts::latest()->get());
+        if (Schema::hasTable('posts')) {
+            View::share('posts', Posts::latest()->get());
+        }
         if (Schema::hasTable('f_a_q_s')) {
             View::share('faqs', FAQ::latest()->get());
         }
