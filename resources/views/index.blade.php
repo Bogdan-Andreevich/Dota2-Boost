@@ -1355,7 +1355,5 @@
     <script src="{{asset('js/hero-slider.js')}}"></script>
     <script src="{{asset('js/calculator.js')}}"></script>
 
-
-
   </body>
 </html>

@@ -183,7 +183,7 @@
                 {{$post->created_at}}
             </p>
             <p class="article-content-description-text">
-                {!! $post->text !!}
+                {!!  $post->text !!}
             </p>
           </div>
 

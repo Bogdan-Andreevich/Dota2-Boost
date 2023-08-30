@@ -44,9 +44,10 @@ class AboutPageController extends Controller
             'techiesContent2' => 'required|string|max:500',
         ]);
 
-        About::create($validatedData);
+        $about = About::first();
+        $about->update($validatedData);
 
-        return redirect()->route('admin-panel.create-4-forms-for-AboutPage')->with('success', 'Post created successfully!');
+        return redirect()->route('admin-panel.create-4-forms-for-AboutPage')->with('success', 'Данные "О нас" успешно обновлены!');
     }
 }
 
