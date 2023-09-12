@@ -61,6 +61,42 @@ Route::middleware('admin')->group(function () {
         return view('cabinet-client-settings-account');
     });
 
+    // Calculators
+    Route::get('/admin/CalculatorBoost', function () {
+        return view('admin-panel.calculators.calculator-boost');
+    });
+    Route::get('/admin/CalculatorCalibrate', function () {
+        return view('admin-panel.calculators.calculator-calibrate');
+    });
+    Route::get('/admin/CalculatorLowpriority', function () {
+        return view('admin-panel.calculators.calculator-lowpriority');
+    });
+    Route::get('/admin/CalculatorDecency', function () {
+        return view('admin-panel.calculators.calculator-decency');
+    });
+    // Calculators
+
+    // Users
+    Route::get('/admin/clients', function () {
+        return view('admin-panel.roles.clients');
+    });
+    Route::get('/admin/admins', function () {
+        return view('admin-panel.roles.admins');
+    });
+    Route::get('/admin/boosters', function () {
+        return view('admin-panel.roles.boosters');
+    });
+    Route::get('/admin/managers', function () {
+        return view('admin-panel.roles.managers');
+    });
+    Route::get('/admin/create/role', function () {
+        return view('admin-panel.roles.create-role');
+    });
+    // Users
+
+    Route::get('/admin/logs', function () {
+        return view('admin-panel.LOGS');
+    });
 
     Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('admin-panel.admin');
     Route::get('/admin/blogs', function () {

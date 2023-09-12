@@ -306,6 +306,27 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+        ['header' => 'CALCULATORS'],
+        [
+            'text' => 'Calculator Boost',
+            'url'  => '/admin/CalculatorBoost',
+            'icon' => 'fas fa-calculator',
+        ],
+        [
+            'text' => 'Calculator Calibrate',
+            'url'  => '/admin/CalculatorCalibrate',
+            'icon' => 'fas fa-calculator',
+        ],
+        [
+            'text' => 'Calculator Lowpriority',
+            'url'  => '/admin/CalculatorLowpriority',
+            'icon' => 'fas fa-calculator',
+        ],
+        [
+            'text' => 'Calculator Decency',
+            'url'  => '/admin/CalculatorDecency',
+            'icon' => 'fas fa-calculator',
+        ],
         ['header' => 'BLOG'],
         [
             'text' => 'Create a blog',
@@ -329,6 +350,37 @@ return [
             'text' => 'profile',
             'url'  => '/profile',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'LOGS',
+            'url'  => '/admin/logs',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text'    => 'Users',
+            'icon'    => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Clients',
+                    'url'  => '/admin/clients',
+                ],
+                [
+                    'text' => 'Admins',
+                    'url'  => '/admin/admins',
+                ],
+                [
+                    'text' => 'Boosters',
+                    'url'  => '/admin/boosters',
+                ],
+                [
+                    'text' => 'Managers',
+                    'url'  => '/admin/managers',
+                ],
+                [
+                    'text' => 'Create a new Role',
+                    'url'  => '/admin/create/role',
+                ],
+            ],
         ],
         ['header' => 'MANAGE PAGES'],
         [
