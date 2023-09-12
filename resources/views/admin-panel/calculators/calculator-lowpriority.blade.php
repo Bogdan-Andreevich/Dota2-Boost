@@ -5,9 +5,11 @@
 
 @section('content_header')
     <h1>Calculator Lowpriority</h1>
+    
 @stop
 
 @section('content')
+<p>rastarst</p>
 
 @endsection
 
