@@ -94,6 +94,10 @@ Route::middleware('admin')->group(function () {
     });
     // Users
 
+    Route::get('/admin/analytics', function () {
+        return view('admin-panel.analytics.analytics');
+    });
+
     Route::get('/admin/logs', function () {
         return view('admin-panel.LOGS');
     });

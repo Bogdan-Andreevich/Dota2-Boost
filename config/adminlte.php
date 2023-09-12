@@ -357,6 +357,11 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Analytics',
+            'url'  => '/admin/analytics',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text'    => 'Users',
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
