@@ -6,6 +6,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\AboutPageController;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
+use App\Http\Controllers\Calculators\CalculatorBoostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,10 @@ use App\Http\Controllers\AboutPageController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//Route::get('/', function () {
+//    return view('index-NEW');
+//});
 
 Route::get('/', [MainPageController::class, 'index'])->name('index');
 
@@ -45,6 +51,27 @@ Route::get('/preparation', function () {
     return view('preparation');
 });
 
+// Services
+
+
+Route::get('/service/boost', [CalculatorBoostController::class, 'index'])->name('services.service-boost');
+
+
+Route::get('/service/calibration', function () {
+    return view('services.service-calibration');
+});
+
+
+
+
+Route::get('/service/low', function () {
+    return view('services.service-low');
+});
+
+Route::get('/service/tracking', function () {
+    return view('services.service-tracking');
+});
+// Services
 
 
 
@@ -65,6 +92,10 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/CalculatorBoost', function () {
         return view('admin-panel.calculators.calculator-boost');
     });
+
+    Route::post('/admin/CalculatorBoost', [CalculatorBoostController::class, 'store']);
+    Route::get('/admin/CalculatorBoost', [CalculatorBoostController::class, 'create'])->name('admin-panel.calculators.calculator-boost');
+
     Route::get('/admin/CalculatorCalibrate', function () {
         return view('admin-panel.calculators.calculator-calibrate');
     });
@@ -98,9 +129,10 @@ Route::middleware('admin')->group(function () {
         return view('admin-panel.analytics.analytics');
     });
 
-    Route::get('/admin/logs', function () {
-        return view('admin-panel.LOGS');
-    });
+//    Route::get('/admin/logs', function () {
+//        return view('admin-panel.LOGS');
+//    });
+    Route::get('/admin/logs', [LogViewerController::class, 'index']);
 
     Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('admin-panel.admin');
     Route::get('/admin/blogs', function () {

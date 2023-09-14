@@ -346,11 +346,11 @@ return [
 //            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => '/profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+//        [
+//            'text' => 'profile',
+//            'url'  => '/profile',
+//            'icon' => 'fas fa-fw fa-user',
+//        ],
         [
             'text' => 'LOGS',
             'url'  => '/admin/logs',
